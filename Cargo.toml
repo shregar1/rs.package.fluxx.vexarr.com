@@ -1,0 +1,24 @@
+[package]
+name = "fluxx"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+authors = ["Fluxx"]
+description = "Official Rust SDK for the Fluxx control plane API."
+license = "Apache-2.0"
+repository = "https://github.com/shregar1/rs.package.fluxx.vexarr.com"
+homepage = "https://fluxx.dev"
+documentation = "https://docs.fluxx.dev"
+keywords = ["fluxx", "observability", "sdk", "api"]
+categories = ["api-bindings"]
+
+[dependencies]
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+tokio = { version = "1", features = ["macros"], optional = true }
+
+[features]
+default = ["tokio"]
+tokio = ["dep:tokio"]
